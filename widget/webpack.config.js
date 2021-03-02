@@ -10,7 +10,8 @@ module.exports = {
   entry: "./src",
   output: {
     path: path.resolve(__dirname, "public"),
-    filename: "bundle.js",
+    //publicPath: "http://localhost:3000/",
+    filename: "widget.js",
   },
   module: {
     rules: [
