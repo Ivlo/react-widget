@@ -1,6 +1,6 @@
 export default {
   servicesUrl: {
-    analyticsEvents: "http://localhost:8080/events",
-    creditAgreement: " http://localhost:8080/credit_agreements",
+    analyticsEventsUrl: "http://localhost:8080/events",
+    creditAgreementUrl: " http://localhost:8080/credit_agreements?totalWithTax=15000",
   },
 };
