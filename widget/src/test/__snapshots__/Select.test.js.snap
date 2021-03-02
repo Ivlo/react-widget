@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should render the Select Component correctly 1`] = `<Fragment />`;
+
+exports[`Select should render the Select Component correctly 1`] = `
+<select
+  onChange={[Function]}
+>
+  <option>
+    option default text
+  </option>
+  <option>
+    undefined options text undefined mes
+  </option>
+  <option>
+    undefined options text undefined mes
+  </option>
+</select>
+`;
