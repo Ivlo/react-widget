@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Widget should render the Widget Component correctly 1`] = `<Fragment />`;
