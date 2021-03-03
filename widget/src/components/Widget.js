@@ -24,6 +24,11 @@ const Widget = () => {
 
   function onSelectChange(event) {
     console.log(event.target.value);
+    setIsModalVisible(true);
+  }
+
+  function onClickCloseModal() {
+    setIsModalVisible(false);
   }
 
   console.log(data);
@@ -42,7 +47,7 @@ const Widget = () => {
             optionsText="cuotas de"
           />
           {isModalVisible && (
-            <Modal>
+            <Modal onClickClose={onClickCloseModal}>
               <FinancingCost />
             </Modal>
           )}
