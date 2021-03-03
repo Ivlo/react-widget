@@ -4,9 +4,13 @@ import { getCreditAgreements } from "../services/creditAgreement";
 import baseConfig from "../baseConfig";
 
 import Select from "./Select";
+import Modal from "./Modal";
+import Loader from "./Loader";
+import FinancingCost from "./FinancingCost";
 
 const Widget = () => {
   const [data, setData] = useState(undefined);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const { creditAgreementUrl } = baseConfig.servicesUrl;
 
@@ -25,7 +29,7 @@ const Widget = () => {
   console.log(data);
   return (
     <>
-      {data && (
+      {data ? (
         <>
           <p>Pagalo en</p>
           <p>
@@ -37,7 +41,14 @@ const Widget = () => {
             optionDefault="Select a element"
             optionsText="cuotas de"
           />
+          {isModalVisible && (
+            <Modal>
+              <FinancingCost />
+            </Modal>
+          )}
         </>
+      ) : (
+        <Loader text="Loading..." />
       )}
     </>
   );
