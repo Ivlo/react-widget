@@ -1,4 +1,5 @@
 import baseConfig from "../baseConfig";
+
 const { analyticsEventsUrl } = baseConfig.servicesUrl;
 
 // eslint-disable-next-line import/prefer-default-export

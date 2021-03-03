@@ -1,6 +1,7 @@
 import React from "react";
 
-const Select = ({ handleChange, optionsData, optionDefault, optionsText }) => {
+// eslint-disable-next-line react/display-name
+const Select = React.memo(({ handleChange, optionsData, optionDefault, optionsText }) => {
   return (
     <select onChange={handleChange}>
       <>
@@ -13,6 +14,6 @@ const Select = ({ handleChange, optionsData, optionDefault, optionsText }) => {
       </>
     </select>
   );
-};
+});
 
 export default Select;

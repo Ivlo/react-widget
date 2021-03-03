@@ -1,5 +1,5 @@
 /* eslint-disable react/button-has-type */
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useCallback } from "react";
 import WidgetContext from "../WidgetContext";
 import { setEvent } from "../services/analyticsEvents";
 
@@ -20,14 +20,14 @@ const Widget = ({ financingData }) => {
     });
   }
 
-  function onSelectChange(event) {
+  const handleSelectCallback = useCallback((event) => {
     const selectedInstalment = event.target.value;
     if (selectedInstalment) {
       setIsModalVisible(true);
       setInstalmentFee(selectedInstalment);
       sendAnalyticEvent(selectedInstalment);
     }
-  }
+  }, []);
 
   function onClickCloseModal() {
     setIsModalVisible(false);
@@ -42,7 +42,7 @@ const Widget = ({ financingData }) => {
             <a href="#">más info</a>
           </p>
           <Select
-            handleChange={onSelectChange}
+            handleChange={handleSelectCallback}
             optionsData={financingData}
             optionDefault="Select a element"
             optionsText="cuotas de"
