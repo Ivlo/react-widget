@@ -1,8 +1,10 @@
-const url = "";
+import baseConfig from "../baseConfig";
+const { analyticsEventsUrl } = baseConfig.servicesUrl;
+
 // eslint-disable-next-line import/prefer-default-export
 export async function setEvent(event) {
   try {
-    await fetch(url, {
+    await fetch(analyticsEventsUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

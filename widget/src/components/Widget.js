@@ -1,6 +1,8 @@
 /* eslint-disable react/button-has-type */
 import React, { useState, useContext } from "react";
 import WidgetContext from "../WidgetContext";
+import { setEvent } from "../services/analyticsEvents";
+
 import Select from "./Select";
 import Modal from "./Modal";
 import Loader from "./Loader";
@@ -10,16 +12,27 @@ const Widget = ({ financingData }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { setInstalmentFee } = useContext(WidgetContext);
 
+  function sendAnalyticEvent(selectedInstalment) {
+    setEvent({
+      context: "checkoutWidget",
+      type: "simulatorInstalmentChanged",
+      selectedInstalment,
+    });
+  }
+
   function onSelectChange(event) {
-    setIsModalVisible(true);
-    setInstalmentFee(event.target.value);
+    const selectedInstalment = event.target.value;
+    if (selectedInstalment) {
+      setIsModalVisible(true);
+      setInstalmentFee(selectedInstalment);
+      sendAnalyticEvent(selectedInstalment);
+    }
   }
 
   function onClickCloseModal() {
     setIsModalVisible(false);
   }
 
-  console.log(financingData);
   return (
     <>
       {financingData ? (
