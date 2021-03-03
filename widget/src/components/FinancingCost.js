@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import WidgetContext from "../WidgetContext";
 
 const FinancingCost = () => {
+  const { instalmentFee } = useContext(WidgetContext);
   return (
     <>
       <header>
@@ -17,6 +19,7 @@ const FinancingCost = () => {
         Además en el importe mostrado ya se incluye la cuota única mensual de 3,00 € al mes, por lo
         que no tendrás ninguna sorpresa
       </p>
+      <p>{instalmentFee}</p>
     </>
   );
 };

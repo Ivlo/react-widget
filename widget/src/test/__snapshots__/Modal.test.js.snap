@@ -3,5 +3,8 @@
 exports[`Modal should render the Modal Component correctly 1`] = `
 <div>
   children component
+  <span>
+    Close Modal
+  </span>
 </div>
 `;
