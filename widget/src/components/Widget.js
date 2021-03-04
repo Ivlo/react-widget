@@ -20,12 +20,11 @@ const Widget = ({ financingData }) => {
     });
   }
 
-  const handleSelectCallback = useCallback((event) => {
-    const selectedInstalment = event.target.value;
-    if (selectedInstalment) {
+  const handleSelectCallback = useCallback(({ target: { value } }) => {
+    if (value) {
       setIsModalVisible(true);
-      setInstalmentFee(selectedInstalment);
-      sendAnalyticEvent(selectedInstalment);
+      setInstalmentFee(value);
+      sendAnalyticEvent(value);
     }
   }, []);
 
@@ -37,10 +36,13 @@ const Widget = ({ financingData }) => {
     <>
       {financingData ? (
         <>
-          <p>Pagalo en</p>
-          <p>
-            <a href="#">más info</a>
-          </p>
+          <div className="widget__heading">
+            <p>Pagalo en</p>
+            <p>
+              <a href="#">más info</a>
+            </p>
+          </div>
+
           <Select
             handleChange={handleSelectCallback}
             optionsData={financingData}

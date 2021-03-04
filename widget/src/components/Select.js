@@ -3,7 +3,7 @@ import React from "react";
 // eslint-disable-next-line react/display-name
 const Select = React.memo(({ handleChange, optionsData, optionDefault, optionsText }) => {
   return (
-    <select onChange={handleChange}>
+    <select onChange={handleChange} className="select">
       <>
         <option value="">{optionDefault}</option>
         {optionsData.map((option) => (

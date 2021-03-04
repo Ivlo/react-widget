@@ -1,10 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Modal should render the Modal Component correctly 1`] = `
-<div>
-  children component
-  <span>
-    Close Modal
+<div
+  className="modal"
+>
+  <div
+    className="modal__content"
+  >
+    children component
+  </div>
+  <span
+    className="modal__action"
+    href=""
+  >
+    X
   </span>
 </div>
 `;

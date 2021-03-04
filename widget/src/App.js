@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { getCreditAgreements } from "./services/creditAgreement";
-import baseConfig from "./baseConfig";
-import Widget from "./components/Widget";
 import { WidgetContextProvider } from "./WidgetContext";
+import baseConfig from "./baseConfig";
+import "./app.css";
+
+import Widget from "./components/Widget";
 
 const App = () => {
   const [instalmentFee, setInstalmentFee] = useState("");
