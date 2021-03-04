@@ -10,7 +10,7 @@ import FinancingCost from "./FinancingCost";
 
 const Widget = ({ financingData }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const { setInstalmentFee } = useContext(WidgetContext);
+  const { instalmentFee, setInstalmentFee } = useContext(WidgetContext);
 
   function sendAnalyticEvent(selectedInstalment) {
     setEvent({
@@ -22,11 +22,14 @@ const Widget = ({ financingData }) => {
 
   const handleSelectCallback = useCallback(({ target: { value } }) => {
     if (value) {
-      setIsModalVisible(true);
       setInstalmentFee(value);
       sendAnalyticEvent(value);
     }
   }, []);
+
+  function onClicOpenModal() {
+    setIsModalVisible(true);
+  }
 
   function onClickCloseModal() {
     setIsModalVisible(false);
@@ -38,15 +41,19 @@ const Widget = ({ financingData }) => {
         <>
           <div className="widget__heading">
             <p>Pagalo en</p>
-            <p>
-              <a href="#">más info</a>
-            </p>
+            {instalmentFee && (
+              <p>
+                <a href="#" onClick={onClicOpenModal}>
+                  más info
+                </a>
+              </p>
+            )}
           </div>
 
           <Select
             handleChange={handleSelectCallback}
             optionsData={financingData}
-            optionDefault="Select a element"
+            optionDefault="Seleccione un metodo de financión"
             optionsText="cuotas de"
           />
           {isModalVisible && (
