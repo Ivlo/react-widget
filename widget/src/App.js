@@ -13,6 +13,11 @@ const App = () => {
   const instalmentFeeValue = { instalmentFee, setInstalmentFee };
   const { creditAgreementUrl } = baseConfig.servicesUrl;
 
+  function setInstalmentFeeWhenDataIsLoaded() {
+    const initialInstalmentFee = data[0].instalment_fee.string;
+    setInstalmentFee(initialInstalmentFee);
+  }
+
   useEffect(() => {
     if (!data) {
       const fetchData = async () => {
@@ -20,6 +25,8 @@ const App = () => {
         setData(result);
       };
       fetchData();
+    } else {
+      setInstalmentFeeWhenDataIsLoaded();
     }
   }, [data, creditAgreementUrl]);
 
