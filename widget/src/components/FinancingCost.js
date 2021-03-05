@@ -42,10 +42,12 @@ const FinancingCost = () => {
       <p>
         <strong>¡Así de simple!</strong>
       </p>
-      <p>
-        Además en el importe mostrado ya se incluye la cuota única mensual de {instalmentFee} al
-        mes, por lo que no tendrás ninguna sorpresa
-      </p>
+      {instalmentFee && (
+        <p>
+          Además en el importe mostrado ya se incluye la cuota única mensual de {instalmentFee} al
+          mes, por lo que no tendrás ninguna sorpresa
+        </p>
+      )}
     </>
   );
 };
