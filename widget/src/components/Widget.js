@@ -10,7 +10,7 @@ import FinancingCost from "./FinancingCost";
 
 const Widget = ({ financingData }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const { instalmentFee, setInstalmentFee } = useContext(WidgetContext);
+  const { setInstalmentFee } = useContext(WidgetContext);
 
   function sendAnalyticEvent(selectedInstalment) {
     setEvent({
@@ -41,13 +41,11 @@ const Widget = ({ financingData }) => {
         <>
           <div className="widget__heading">
             <p>Pagalo en</p>
-            {instalmentFee && (
-              <p>
-                <a href="#" onClick={onClicOpenModal}>
-                  más info
-                </a>
-              </p>
-            )}
+            <p>
+              <a href="#" onClick={onClicOpenModal}>
+                más info
+              </a>
+            </p>
           </div>
 
           <Select
