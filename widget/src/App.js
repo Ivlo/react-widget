@@ -14,7 +14,7 @@ const App = () => {
   const { creditAgreementUrl } = baseConfig.servicesUrl;
 
   function setInstalmentFeeWhenDataIsLoaded() {
-    const initialInstalmentFee = data[0].instalment_fee.string;
+    const initialInstalmentFee = data[0].instalment_fee.value;
     setInstalmentFee(initialInstalmentFee);
   }
 

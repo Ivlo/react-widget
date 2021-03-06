@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import WidgetContext from "../WidgetContext";
+import numberToFixed from "../utils";
 
 const FinancingCost = () => {
   const { instalmentFee } = useContext(WidgetContext);
+  const instalmentFeeNumberFixed = numberToFixed(instalmentFee);
   return (
     <>
       <div className="heading">
@@ -44,8 +46,8 @@ const FinancingCost = () => {
       </p>
       {instalmentFee && (
         <p>
-          Además en el importe mostrado ya se incluye la cuota única mensual de {instalmentFee} al
-          mes, por lo que no tendrás ninguna sorpresa
+          Además en el importe mostrado ya se incluye la cuota única mensual de{" "}
+          {instalmentFeeNumberFixed} € al mes, por lo que no tendrás ninguna sorpresa
         </p>
       )}
     </>
