@@ -1,19 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card should render the Select Component correctly 1`] = `<Fragment />`;
-
-exports[`Select should render the Select Component correctly 1`] = `
-<select
-  onChange={[Function]}
+exports[`Select should render correctly 1`] = `
+<Memo()
+  handleChange={[MockFunction]}
+  optionDefault="option default text"
+  optionsData={
+    Array [
+      Object {
+        "instalment_count": "3",
+        "instalment_fee": Object {
+          "value": "500",
+        },
+        "instalment_total": Object {
+          "value": "5500",
+        },
+      },
+      Object {
+        "instalment_count": "6",
+        "instalment_fee": Object {
+          "value": "500",
+        },
+        "instalment_total": Object {
+          "value": "3000",
+        },
+      },
+    ]
+  }
+  optionsText="cuotas de"
 >
-  <option>
-    option default text
-  </option>
-  <option>
-    undefined options text undefined mes
-  </option>
-  <option>
-    undefined options text undefined mes
-  </option>
-</select>
+  <select
+    className="select"
+    onChange={[MockFunction]}
+  >
+    <option
+      key="3"
+      value="500"
+    >
+      3 cuotas de 55,00 € mes
+    </option>
+    <option
+      key="6"
+      value="500"
+    >
+      6 cuotas de 30,00 € mes
+    </option>
+  </select>
+</Memo()>
 `;
