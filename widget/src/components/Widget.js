@@ -11,15 +11,15 @@ import FinancingCost from "./FinancingCost";
 
 const Widget = ({ financingData }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const { setInstalmentFee } = useContext(WidgetContext);
+  const { instalmentFee, setInstalmentFee } = useContext(WidgetContext);
 
   // get id container for modal defined in index.html
   const modalContainer = document.querySelector("#sequra-widget-financing-cost-modal");
 
-  function sendAnalyticEvent(selectedInstalment) {
+  function sendAnalyticEvent(type, selectedInstalment) {
     setEvent({
       context: "checkoutWidget",
-      type: "simulatorInstalmentChanged",
+      type,
       selectedInstalment,
     });
   }
@@ -27,12 +27,13 @@ const Widget = ({ financingData }) => {
   const handleSelectCallback = useCallback(({ target: { value } }) => {
     if (value) {
       setInstalmentFee(value);
-      sendAnalyticEvent(value);
+      sendAnalyticEvent("simulatorInstalmentChanged", value);
     }
   }, []);
 
   function onClicOpenModal() {
     setIsModalVisible(true);
+    sendAnalyticEvent("simulatorInstalmentMoreInfo", instalmentFee);
   }
 
   function onClickCloseModal() {
