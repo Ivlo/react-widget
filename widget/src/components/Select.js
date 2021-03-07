@@ -4,7 +4,6 @@ import round from "../utils";
 // eslint-disable-next-line react/display-name
 const Select = React.memo(({ handleChange, optionsData, optionsText }) => {
   const [optionsSelect, setOptionsSelect] = useState(undefined);
-  let ivlo;
 
   useEffect(() => {
     // manipulate options render in useEffect to avoid warning Cannot flush updates when React is already rendering
