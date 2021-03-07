@@ -1,3 +1,3 @@
-export default function numberToFixed(number, fixed = 2) {
-  return (number / 100).toFixed(fixed).replace(".", ",");
+export default function round(number, numberOfDecimals = 2) {
+  return (number / 100).toFixed(numberOfDecimals).replace(".", ",");
 }
