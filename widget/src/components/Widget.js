@@ -1,5 +1,6 @@
 /* eslint-disable react/button-has-type */
 import React, { useState, useContext, useCallback } from "react";
+import ReactDOM from "react-dom";
 import WidgetContext from "../WidgetContext";
 import { setEvent } from "../services/analyticsEvents";
 
@@ -11,6 +12,9 @@ import FinancingCost from "./FinancingCost";
 const Widget = ({ financingData }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { setInstalmentFee } = useContext(WidgetContext);
+
+  // get id container for modal defined in index.html
+  const modalContainer = document.querySelector("#sequra-widget-financing-cost-modal");
 
   function sendAnalyticEvent(selectedInstalment) {
     setEvent({
@@ -53,11 +57,13 @@ const Widget = ({ financingData }) => {
             optionsData={financingData}
             optionsText="cuotas de"
           />
-          {isModalVisible && (
-            <Modal onClickClose={onClickCloseModal}>
-              <FinancingCost />
-            </Modal>
-          )}
+          {isModalVisible &&
+            ReactDOM.createPortal(
+              <Modal onClickClose={onClickCloseModal}>
+                <FinancingCost />
+              </Modal>,
+              modalContainer,
+            )}
         </>
       ) : (
         <Loader text="Loading..." />
