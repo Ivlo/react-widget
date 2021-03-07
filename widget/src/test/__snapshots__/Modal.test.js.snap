@@ -7,11 +7,12 @@ exports[`Modal should render the Modal Component correctly 1`] = `
   <div
     className="modal__content"
   >
-    children component
+    Content Modal
   </div>
   <span
     className="modal__action"
     href=""
+    onClick={[MockFunction]}
   >
     X
   </span>
