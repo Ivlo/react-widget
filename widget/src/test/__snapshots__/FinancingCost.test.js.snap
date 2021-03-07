@@ -61,8 +61,5 @@ exports[`FinancingCost should render the FinancingCost Component correctly 1`] =
       ¡Así de simple!
     </strong>
   </p>
-  <p>
-    Además en el importe mostrado ya se incluye la cuota única mensual de 3,00 € al mes, por lo que no tendrás ninguna sorpresa 
-  </p>
 </Fragment>
 `;
