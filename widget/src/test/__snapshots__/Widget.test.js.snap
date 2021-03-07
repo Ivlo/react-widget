@@ -1,6 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Widget should render the Widget Component correctly 1`] = `
+exports[`Widget with financing information data should render the Widget Component correctly 1`] = `
+<Fragment>
+  <div
+    className="widget__heading"
+  >
+    <p>
+      Pagalo en
+    </p>
+    <p>
+      <a
+        href="#"
+        onClick={[Function]}
+      >
+        más info
+      </a>
+    </p>
+  </div>
+  <Memo()
+    handleChange={[Function]}
+    optionsData={true}
+    optionsText="cuotas de"
+  />
+</Fragment>
+`;
+
+exports[`Widget without financing informtion data should render the Widget Component correctly 1`] = `
 <Fragment>
   <Loader
     text="Loading..."
