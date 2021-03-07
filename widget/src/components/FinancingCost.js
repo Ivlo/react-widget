@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import WidgetContext from "../WidgetContext";
-import numberToFixed from "../utils";
+import round from "../utils";
 
 const FinancingCost = () => {
   const { instalmentFee } = useContext(WidgetContext);
-  const instalmentFeeNumberFixed = numberToFixed(instalmentFee);
+  const instalmentFeeNumberFixed = round(instalmentFee);
   return (
     <>
       <div className="heading">

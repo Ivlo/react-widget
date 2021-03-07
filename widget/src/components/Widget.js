@@ -51,7 +51,6 @@ const Widget = ({ financingData }) => {
           <Select
             handleChange={handleSelectCallback}
             optionsData={financingData}
-            optionDefault="Seleccione un metodo de financión"
             optionsText="cuotas de"
           />
           {isModalVisible && (
