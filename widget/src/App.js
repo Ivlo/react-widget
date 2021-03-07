@@ -7,6 +7,7 @@ import "./app.css";
 import Widget from "./components/Widget";
 
 const App = () => {
+  // useSate to use in context-api
   const [instalmentFee, setInstalmentFee] = useState("");
   const [data, setData] = useState(undefined);
 
@@ -20,12 +21,14 @@ const App = () => {
 
   useEffect(() => {
     if (!data) {
+      // recover data from api and sve in useState Data
       const fetchData = async () => {
         const result = await getCreditAgreements(creditAgreementUrl);
         setData(result);
       };
       fetchData();
     } else {
+      // save first Instalmente fee in the context api when i have data
       setInstalmentFeeWhenDataIsLoaded();
     }
   }, [data, creditAgreementUrl]);

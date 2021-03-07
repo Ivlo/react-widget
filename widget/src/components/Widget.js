@@ -17,6 +17,7 @@ const Widget = ({ financingData }) => {
   const modalContainer = document.querySelector("#sequra-widget-financing-cost-modal");
 
   function sendAnalyticEvent(type, selectedInstalment) {
+    // call to analytics services with type of event and value selected
     setEvent({
       context: "checkoutWidget",
       type,
@@ -32,11 +33,13 @@ const Widget = ({ financingData }) => {
   }, []);
 
   function onClicOpenModal() {
+    // Open Modal and send analytic event
     setIsModalVisible(true);
     sendAnalyticEvent("simulatorInstalmentMoreInfo", instalmentFee);
   }
 
   function onClickCloseModal() {
+    // Method to close Modal update isModalVisible State
     setIsModalVisible(false);
   }
 
